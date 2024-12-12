@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+body.player-green {
+    background-color: #e0f7e0; /* Light green background for player 1 */
+}
+
+body.player-red {
+    background-color: #f7e0e0; /* Light red background for player 2 */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 10px;
+}
+
+.card {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+    transition: transform 0.3s;
+}
+
+.card .front,
+.card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border-radius: 5px;
+}
+
+.card .front {
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+}
+
+.card .back {
+    background-color: #4CAF50;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.card.player-red .back {
+    background-color: #F44336; /* Red color for player 2 */
+}
+
+.card.player-green .back {
+    background-color: #4CAF50; /* Green color for player 1 */
+}
+
+.card.flip .front {
+    transform: rotateY(180deg);
+}
+
+.card.flip .back {
+    transform: rotateY(0deg);
+}
+
+.card.flipped {
+    background-color: #4CAF50;
+    color: white;
+    transform: scale(1.1);
+}
+
+.card.matched {
+    background-color: #2196F3;
+    color: white;
+}
+
+.card:not(.matched):hover {
+    background-color: #e0e0e0;
+}
